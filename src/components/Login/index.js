@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import SignUp from './SignUp';
 
 const Login = ({ setIsAuthenticated }) => {
   const adminEmail = 'admin@example.com';
@@ -7,6 +8,7 @@ const Login = ({ setIsAuthenticated }) => {
 
   const [email, setEmail] = useState('admin@example.com');
   const [password, setPassword] = useState('qwerty');
+  const [redirectToSignUp, setRedirectToSignUp] = useState(false);
 
   const handleLogin = e => {
     e.preventDefault();
@@ -49,6 +51,14 @@ const Login = ({ setIsAuthenticated }) => {
     }
   };
 
+  const handleSignUp = () => {
+    setRedirectToSignUp(true);
+  };
+
+  if (redirectToSignUp) {
+    return <SignUp />;
+  }
+
   return (
     <div className="small-container">
       <form onSubmit={handleLogin}>
@@ -67,11 +77,15 @@ const Login = ({ setIsAuthenticated }) => {
           id="password"
           type="password"
           name="password"
-          // placeholder="qwerty"
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
-        <input style={{ marginTop: '12px' }} type="submit" value="Login" />
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '12px' }}>
+          <input type="submit" value="Login" />
+          <button type="button" onClick={handleSignUp}>
+            Sign Up
+          </button>
+        </div>
       </form>
     </div>
   );
