@@ -30,7 +30,7 @@ const SignUp = () => {
     <div className="small-container">
       <form onSubmit={handleSubmit}>
         <h1>Sign Up</h1>
-        <label htmlFor="adminName">Admin Name</label>
+        <label htmlFor="adminName">Admin Name<span style={{ color: 'red' }}>*</span></label>
         <input
           id="adminName"
           type="text"
@@ -38,7 +38,7 @@ const SignUp = () => {
           value={adminName}
           onChange={e => setAdminName(e.target.value)}
         />
-        <label htmlFor="employeeId">Employee ID</label>
+        <label htmlFor="employeeId">Employee ID<span style={{ color: 'red' }}>*</span></label>
         <input
           id="employeeId"
           type="text"
@@ -46,14 +46,14 @@ const SignUp = () => {
           value={employeeId}
           onChange={e => setEmployeeId(e.target.value)}
         />
-        <label htmlFor="gender">Gender</label>
+        <label htmlFor="gender">Gender<span style={{ color: 'red' }}>*</span></label>
         <select id="gender" name="gender" value={gender} onChange={e => setGender(e.target.value)}>
           <option value="">Select gender</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="other">Other</option>
         </select>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Email<span style={{ color: 'red' }}>*</span></label>
         <input
           id="email"
           type="email"
@@ -61,7 +61,7 @@ const SignUp = () => {
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <label htmlFor="phone">Phone</label>
+        <label htmlFor="phone">Phone<span style={{ color: 'red' }}>*</span></label>
         <input
           id="phone"
           type="tel"
@@ -69,7 +69,7 @@ const SignUp = () => {
           value={phone}
           onChange={e => setPhone(e.target.value)}
         />
-        <label htmlFor="address">Address</label>
+        <label htmlFor="address">Address<span style={{ color: 'red' }}>*</span></label>
         <textarea
           id="address"
           name="address"
