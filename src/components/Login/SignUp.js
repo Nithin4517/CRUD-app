@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
   const [adminName, setAdminName] = useState('');
@@ -19,11 +20,14 @@ const SignUp = () => {
 
   if (isSignUpSuccessful) {
     return (
-      <div className="small-container">
-        <h1>Sign Up Successful!</h1>
-        <p>Thank you for signing up.</p>
-      </div>
-    );
+      Swal.fire({
+        icon: 'success',
+        title: 'Successfully Signed in!',
+        showConfirmButton: false,
+        timer: 1500,
+      })
+    )
+    
   }
 
   return (
